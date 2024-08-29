@@ -108,6 +108,6 @@ class __TwigTemplate_6e446501fa0bb7ee4ef3b79a9d615f1f extends Template
         </div>
     </div>
 </div>
-", "@WebProfiler/Profiler/header.html.twig", "/home/ciderfabriken/dbwebb-kurser/mvc/me/report/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/header.html.twig");
+", "@WebProfiler/Profiler/header.html.twig", "/home/ciderfabriken/dbwebb-kurser/mvc_new/me/report/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/header.html.twig");
     }
 }

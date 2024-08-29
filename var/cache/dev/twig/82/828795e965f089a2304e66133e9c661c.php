@@ -240,6 +240,6 @@ class __TwigTemplate_c7dfc298b993ce19977e07aa253229c2 extends Template
         </div>
     {% endif %}
 {% endblock %}
-", "@WebProfiler/Collector/exception.html.twig", "/home/ciderfabriken/dbwebb-kurser/mvc/me/report/vendor/symfony/web-profiler-bundle/Resources/views/Collector/exception.html.twig");
+", "@WebProfiler/Collector/exception.html.twig", "/home/ciderfabriken/dbwebb-kurser/mvc_new/me/report/vendor/symfony/web-profiler-bundle/Resources/views/Collector/exception.html.twig");
     }
 }

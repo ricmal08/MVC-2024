@@ -1850,6 +1850,6 @@ class __TwigTemplate_6fe596dc7cd7aa693362f624a02e423d extends Template
         </tbody>
     </table>
 {% endmacro %}
-", "@Doctrine/Collector/db.html.twig", "/home/ciderfabriken/dbwebb-kurser/mvc/me/report/vendor/doctrine/doctrine-bundle/templates/Collector/db.html.twig");
+", "@Doctrine/Collector/db.html.twig", "/home/ciderfabriken/dbwebb-kurser/mvc_new/me/report/vendor/doctrine/doctrine-bundle/templates/Collector/db.html.twig");
     }
 }

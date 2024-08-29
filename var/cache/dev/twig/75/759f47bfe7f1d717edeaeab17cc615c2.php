@@ -88,27 +88,35 @@ class __TwigTemplate_8d718869edad3f41e90b02a174bc7269 extends Template
 
         // line 6
         yield "<h1>Card game</h1>
-
+        <ul>
+            <li><a href=\"";
+        // line 8
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("card_deck");
+        yield "\">Deck</li>
+            <li><a href=\"";
+        // line 9
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("card_deck_shuffle");
+        yield "\">Shuffle Deck</a></li>
+            <li><a href=\"";
+        // line 10
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("card_deck_draw");
+        yield "\">Draw</a></li>
+        </ul>
+<br>
 <p>Här är en genomgång över samtliga applikationsklasser samt struktur på klasserna och dess relationer som används i min konstruktion för 'Card Game'.</p>
 
 <p>Ytterligare längre ned på sidan har jag även inkluderat ett UML klass diagram som visualiserar strukturen och relationerna.</p>
 
 <br>
-<p>Card - En klass som representerar ett enskilt kort i en kortlek. Klassen innehåller egenskaper som färg(suit), värde(value) och en rang(rank). Klassen innehåller också två metoder getSuit() och getRank() för att hämta färg och rang.</p>
-<p>CardHand - En klass som representerar en giv</p>
-<p>DeckOfCards - En klass som representerar en kortlek. Klassen innehåller en array av Card-objekt och metoder för att skapa, blanda och dra kort från kortleken.</p>
-<p>CardGraphic - En subklass till Card som innehåller en länk till en bild som representerar kortet.</p>
-<p>CardGameController - En controller-klass som hanterar alla förfrågningar som rör spelet. Klassen använder DeckOfCards för att skapa en kortlek och CardGraphic för att visa korten i spelet.</p>
-<p>Twig-templates - En serie Twig-templates för att visa kortleken och resultaten av dragningarna.</p>
-<br>
-<li><a href=\"";
-        // line 20
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("api_index");
-        yield "\">Klicka här för att komma till min 'api/' route </a></li>
-<br>
+<p><b>Card</b> - En klass som representerar ett enskilt kort i en kortlek. Klassen innehåller egenskaper som färg(suit), värde(value) och en rang(rank). Klassen innehåller också två metoder getSuit() och getRank() för att hämta färg och rang.</p>
+<p><b>CardHand</b> - En klass som representerar en giv</p>
+<p><b>DeckOfCards</b> - En klass som representerar en kortlek. Klassen innehåller en array av Card-objekt och metoder för att skapa, blanda och dra kort från kortleken.</p>
+<p><b>CardGraphic</b> - En subklass till Card som innehåller en länk till en bild som representerar kortet.</p>
+<p><b>CardGameController</b> - En controller-klass som hanterar alla förfrågningar som rör spelet. Klassen använder DeckOfCards för att skapa en kortlek och CardGraphic för att visa korten i spelet.</p>
+<p><b>Twig-templates</b> - En serie Twig-templates för att visa kortleken och resultaten av dragningarna.</p>
 <br>
 <img src=\"";
-        // line 23
+        // line 25
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/uml.jpg"), "html", null, true);
         yield "\" alt=\"\" class=\"uml\">
 <br>
@@ -144,7 +152,7 @@ class __TwigTemplate_8d718869edad3f41e90b02a174bc7269 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  112 => 23,  106 => 20,  90 => 6,  80 => 5,  60 => 3,  37 => 1,);
+        return array (  120 => 25,  102 => 10,  98 => 9,  94 => 8,  90 => 6,  80 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -155,25 +163,27 @@ class __TwigTemplate_8d718869edad3f41e90b02a174bc7269 extends Template
 
 {% block body %}
 <h1>Card game</h1>
-
+        <ul>
+            <li><a href=\"{{ path('card_deck') }}\">Deck</li>
+            <li><a href=\"{{ path('card_deck_shuffle') }}\">Shuffle Deck</a></li>
+            <li><a href=\"{{ path('card_deck_draw') }}\">Draw</a></li>
+        </ul>
+<br>
 <p>Här är en genomgång över samtliga applikationsklasser samt struktur på klasserna och dess relationer som används i min konstruktion för 'Card Game'.</p>
 
 <p>Ytterligare längre ned på sidan har jag även inkluderat ett UML klass diagram som visualiserar strukturen och relationerna.</p>
 
 <br>
-<p>Card - En klass som representerar ett enskilt kort i en kortlek. Klassen innehåller egenskaper som färg(suit), värde(value) och en rang(rank). Klassen innehåller också två metoder getSuit() och getRank() för att hämta färg och rang.</p>
-<p>CardHand - En klass som representerar en giv</p>
-<p>DeckOfCards - En klass som representerar en kortlek. Klassen innehåller en array av Card-objekt och metoder för att skapa, blanda och dra kort från kortleken.</p>
-<p>CardGraphic - En subklass till Card som innehåller en länk till en bild som representerar kortet.</p>
-<p>CardGameController - En controller-klass som hanterar alla förfrågningar som rör spelet. Klassen använder DeckOfCards för att skapa en kortlek och CardGraphic för att visa korten i spelet.</p>
-<p>Twig-templates - En serie Twig-templates för att visa kortleken och resultaten av dragningarna.</p>
-<br>
-<li><a href=\"{{ path('api_index') }}\">Klicka här för att komma till min 'api/' route </a></li>
-<br>
+<p><b>Card</b> - En klass som representerar ett enskilt kort i en kortlek. Klassen innehåller egenskaper som färg(suit), värde(value) och en rang(rank). Klassen innehåller också två metoder getSuit() och getRank() för att hämta färg och rang.</p>
+<p><b>CardHand</b> - En klass som representerar en giv</p>
+<p><b>DeckOfCards</b> - En klass som representerar en kortlek. Klassen innehåller en array av Card-objekt och metoder för att skapa, blanda och dra kort från kortleken.</p>
+<p><b>CardGraphic</b> - En subklass till Card som innehåller en länk till en bild som representerar kortet.</p>
+<p><b>CardGameController</b> - En controller-klass som hanterar alla förfrågningar som rör spelet. Klassen använder DeckOfCards för att skapa en kortlek och CardGraphic för att visa korten i spelet.</p>
+<p><b>Twig-templates</b> - En serie Twig-templates för att visa kortleken och resultaten av dragningarna.</p>
 <br>
 <img src=\"{{ asset('img/uml.jpg') }}\" alt=\"\" class=\"uml\">
 <br>
 
-{% endblock %}", "card/card.html.twig", "/home/ciderfabriken/dbwebb-kurser/mvc/me/report/templates/card/card.html.twig");
+{% endblock %}", "card/card.html.twig", "/home/ciderfabriken/dbwebb-kurser/mvc_new/me/report/templates/card/card.html.twig");
     }
 }

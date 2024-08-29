@@ -855,6 +855,6 @@ class __TwigTemplate_7bf3dc89133cc29631b2cd79cc6e288d extends Template
     </table>
     {% endfor %}
 {% endmacro %}
-", "@WebProfiler/Collector/messenger.html.twig", "/home/ciderfabriken/dbwebb-kurser/mvc/me/report/vendor/symfony/web-profiler-bundle/Resources/views/Collector/messenger.html.twig");
+", "@WebProfiler/Collector/messenger.html.twig", "/home/ciderfabriken/dbwebb-kurser/mvc_new/me/report/vendor/symfony/web-profiler-bundle/Resources/views/Collector/messenger.html.twig");
     }
 }

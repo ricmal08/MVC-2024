@@ -80,6 +80,6 @@ class __TwigTemplate_6468ae4d7a7e75b216a2d78b8d8dd330 extends Template
             Copyright @Rickard Malmgren
         </p>
     </div>
-</div>", "footer.html.twig", "/home/ciderfabriken/dbwebb-kurser/mvc/me/report/templates/footer.html.twig");
+</div>", "footer.html.twig", "/home/ciderfabriken/dbwebb-kurser/mvc_new/me/report/templates/footer.html.twig");
     }
 }

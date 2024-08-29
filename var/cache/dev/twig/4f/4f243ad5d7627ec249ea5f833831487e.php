@@ -134,6 +134,6 @@ class __TwigTemplate_f84a5cfd7f20ef3090bf94d89e6c13af extends Template
         {% endfor %}
     </ul>
 {% endblock %}
-", "api/index.html.twig", "/home/ciderfabriken/dbwebb-kurser/mvc/me/report/templates/api/index.html.twig");
+", "api/index.html.twig", "/home/ciderfabriken/dbwebb-kurser/mvc_new/me/report/templates/api/index.html.twig");
     }
 }

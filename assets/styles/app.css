@@ -16,7 +16,7 @@ body {
 }
 
 main { 
-    width: 80%;
+    width: 50%;
     margin: 0 auto;
 }
 
@@ -76,6 +76,8 @@ ul {
 }
 
 .container {
+    width: 100%;
+    margin: 0 auto;
     display: flex;
     margin-top: 50px;
   }
@@ -179,3 +181,15 @@ table {
     display: inline-block;
 }
 
+p {
+    text-align: justify; /* or 'center', 'left', 'right' depending on your preference */
+    margin: 0 auto; /* Optional: Centers the paragraph block */
+    
+}
+
+p {
+    margin-top: 10px; /* Controls space above */
+    margin-bottom: 10px; /* Controls space below */
+    margin-left: 0; /* Ensures all paragraphs start at the same left position */
+    margin-right: 0; /* Ensures all paragraphs end at the same right position */
+}

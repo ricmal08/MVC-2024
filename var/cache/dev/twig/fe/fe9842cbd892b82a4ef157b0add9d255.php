@@ -143,6 +143,6 @@ class __TwigTemplate_31bd9734a9806745944d7c22381af2ff extends Template
 <p>Remaining cards in deck: {{ remainingCards }}</p>
 
 {% endblock %}
-", "card/draw.html.twig", "/home/ciderfabriken/dbwebb-kurser/mvc/me/report/templates/card/draw.html.twig");
+", "card/draw.html.twig", "/home/ciderfabriken/dbwebb-kurser/mvc_new/me/report/templates/card/draw.html.twig");
     }
 }

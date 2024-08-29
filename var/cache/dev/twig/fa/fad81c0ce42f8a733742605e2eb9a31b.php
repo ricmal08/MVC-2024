@@ -107,9 +107,9 @@ class __TwigTemplate_7af7071573642606648d9113d8669e78 extends Template
         <h1>About</h1>
         <p> Kursen `MVC` fokuserar på objektorienterade programmeringstekniker i programmeringsspråket PHP. Klassiska objektorienterade konstruktioner hanteras tillsammans med objektorienterad programmering i webbaserat ramverk tillsammans med databaser samt enhetstestning.</p>
         <br>
-        <a href=\"https://github.com/ricmal08\">Besök mitt kursrepo</a>
+        <a href=\"https://github.com/ricmal08/MVC-2024\">Besök mitt kursrepo</a>
         <br>
-        <a href=\"https://dbwebb.se/mvc\">Länk till kursrepo</a>
+        <a href=\"https://dbwebb.se/mvc\">Länk till kurssidan</a>
       </div>
     </div>
   </body>
@@ -169,13 +169,13 @@ class __TwigTemplate_7af7071573642606648d9113d8669e78 extends Template
         <h1>About</h1>
         <p> Kursen `MVC` fokuserar på objektorienterade programmeringstekniker i programmeringsspråket PHP. Klassiska objektorienterade konstruktioner hanteras tillsammans med objektorienterad programmering i webbaserat ramverk tillsammans med databaser samt enhetstestning.</p>
         <br>
-        <a href=\"https://github.com/ricmal08\">Besök mitt kursrepo</a>
+        <a href=\"https://github.com/ricmal08/MVC-2024\">Besök mitt kursrepo</a>
         <br>
-        <a href=\"https://dbwebb.se/mvc\">Länk till kursrepo</a>
+        <a href=\"https://dbwebb.se/mvc\">Länk till kurssidan</a>
       </div>
     </div>
   </body>
   
-{% endblock %}", "about.html.twig", "/home/ciderfabriken/dbwebb-kurser/mvc/me/report/templates/about.html.twig");
+{% endblock %}", "about.html.twig", "/home/ciderfabriken/dbwebb-kurser/mvc_new/me/report/templates/about.html.twig");
     }
 }

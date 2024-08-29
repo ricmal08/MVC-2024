@@ -197,6 +197,6 @@ class __TwigTemplate_51e5af1c1c6a58d81f7407ff83ed0c5d extends Template
 
 </div>
 {% endblock %}
-", "report.html.twig", "/home/ciderfabriken/dbwebb-kurser/mvc/me/report/templates/report.html.twig");
+", "report.html.twig", "/home/ciderfabriken/dbwebb-kurser/mvc_new/me/report/templates/report.html.twig");
     }
 }

@@ -75,35 +75,22 @@ class __TwigTemplate_87525bb60e56740b267f1c23e023c73f extends Template
         yield ")\">
             <span class=\"site-title\">Min Symfony-sida</span>
         </header>
-
         <nav>
             <ul>
                 <li><a href=\"";
-        // line 23
+        // line 22
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
         yield "\">Session</a></li>
                 <li><a href=\"";
-        // line 24
+        // line 23
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("card_start");
         yield "\">Card</a></li>
                 <li><a href=\"";
-        // line 25
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("card_deck");
-        yield "\">Deck</li>
-                <li><a href=\"";
-        // line 26
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("card_deck_shuffle");
-        yield "\">Shuffle Deck</a></li>
-                <li><a href=\"";
-        // line 27
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("card_deck_draw");
-        yield "\">Draw</a></li>
-                <li><a href=\"";
-        // line 28
+        // line 24
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("about");
         yield "\">About</a></li>
                 <li><a href=\"";
-        // line 29
+        // line 25
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("report");
         yield "\">Report</a></li>
 
@@ -111,14 +98,13 @@ class __TwigTemplate_87525bb60e56740b267f1c23e023c73f extends Template
         </nav>
 
         <main>";
-        // line 34
+        // line 30
         yield from $this->unwrap()->yieldBlock('body', $context, $blocks);
         yield "</main>
-
         ";
-        // line 36
-        yield from         $this->loadTemplate("footer.html.twig", "base.html.twig", 36)->unwrap()->yield($context);
-        // line 37
+        // line 31
+        yield from         $this->loadTemplate("footer.html.twig", "base.html.twig", 31)->unwrap()->yield($context);
+        // line 32
         yield "    </body>
 </html>
 ";
@@ -199,7 +185,7 @@ class __TwigTemplate_87525bb60e56740b267f1c23e023c73f extends Template
         return; yield '';
     }
 
-    // line 34
+    // line 30
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -239,7 +225,7 @@ class __TwigTemplate_87525bb60e56740b267f1c23e023c73f extends Template
      */
     public function getDebugInfo()
     {
-        return array (  203 => 34,  189 => 13,  179 => 12,  165 => 9,  155 => 8,  135 => 5,  122 => 37,  120 => 36,  115 => 34,  107 => 29,  103 => 28,  99 => 27,  95 => 26,  91 => 25,  87 => 24,  83 => 23,  74 => 17,  70 => 15,  68 => 12,  65 => 11,  62 => 8,  58 => 6,  54 => 5,  48 => 1,);
+        return array (  189 => 30,  175 => 13,  165 => 12,  151 => 9,  141 => 8,  121 => 5,  108 => 32,  106 => 31,  102 => 30,  94 => 25,  90 => 24,  86 => 23,  82 => 22,  74 => 17,  70 => 15,  68 => 12,  65 => 11,  62 => 8,  58 => 6,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -263,14 +249,10 @@ class __TwigTemplate_87525bb60e56740b267f1c23e023c73f extends Template
         <header class=\"site-header\" style=\"background-image: url({{ asset('img/abstract.png') }})\">
             <span class=\"site-title\">Min Symfony-sida</span>
         </header>
-
         <nav>
             <ul>
                 <li><a href=\"{{ path('home') }}\">Session</a></li>
                 <li><a href=\"{{ path('card_start') }}\">Card</a></li>
-                <li><a href=\"{{ path('card_deck') }}\">Deck</li>
-                <li><a href=\"{{ path('card_deck_shuffle') }}\">Shuffle Deck</a></li>
-                <li><a href=\"{{ path('card_deck_draw') }}\">Draw</a></li>
                 <li><a href=\"{{ path('about') }}\">About</a></li>
                 <li><a href=\"{{ path('report') }}\">Report</a></li>
 
@@ -278,10 +260,9 @@ class __TwigTemplate_87525bb60e56740b267f1c23e023c73f extends Template
         </nav>
 
         <main>{% block body %}{% endblock %}</main>
-
         {% include 'footer.html.twig' %}
     </body>
 </html>
-", "base.html.twig", "/home/ciderfabriken/dbwebb-kurser/mvc/me/report/templates/base.html.twig");
+", "base.html.twig", "/home/ciderfabriken/dbwebb-kurser/mvc_new/me/report/templates/base.html.twig");
     }
 }
