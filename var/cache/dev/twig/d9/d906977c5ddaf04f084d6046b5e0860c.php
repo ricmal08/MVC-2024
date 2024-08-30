@@ -90,10 +90,6 @@ class __TwigTemplate_8da2481d2af506631f2d4c5fe7d9bc10 extends Template
         yield "    <h1>Session</h1>
         <p>Här kommer det att vara en session.</p>
         <br>
-        <li><a href=\"";
-        // line 9
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("api_index");
-        yield "\">Klicka här för att komma till min 'api/' route </a></li>
         <br>
 
 ";
@@ -127,7 +123,7 @@ class __TwigTemplate_8da2481d2af506631f2d4c5fe7d9bc10 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  95 => 9,  90 => 6,  80 => 5,  60 => 3,  37 => 1,);
+        return array (  90 => 6,  80 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -140,7 +136,6 @@ class __TwigTemplate_8da2481d2af506631f2d4c5fe7d9bc10 extends Template
     <h1>Session</h1>
         <p>Här kommer det att vara en session.</p>
         <br>
-        <li><a href=\"{{ path('api_index') }}\">Klicka här för att komma till min 'api/' route </a></li>
         <br>
 
 {% endblock %}

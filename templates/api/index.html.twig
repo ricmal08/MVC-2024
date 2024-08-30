@@ -2,9 +2,17 @@
 
 {% block body %}
     <h1>API Routes</h1>
-    <ul>
-        {% for route in routes %}
-        <li><a href="{{ path('api_quote') }}">{{ route.path }}</a> - {{ route.description }}</li>
-        {% endfor %}
-    </ul>
+  <ul class="api-list">
+    {% for route in routes %}
+        <li>
+            {% if route.name == 'api_deck_draw_number' %}
+                {{ route.path }} - {{ route.description }}
+            {% else %}
+                <a href="{{ path(route.name) }}">{{ route.path }}</a> - {{ route.description }}
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+
+
 {% endblock %}

@@ -17,7 +17,7 @@ class CardGameController extends AbstractController
     #[Route("/home", name: "home")]
     public function home(): Response
     {
-        return $this->render('card/session.html.twig');
+        return $this->render('session.html.twig');
     }
 
     #[Route("/card", name: "card_start")]
@@ -67,7 +67,7 @@ class CardGameController extends AbstractController
         // Spara kortleken i sessionen
         $session->set('deck', $deck);
 
-        return $this->redirectToRoute('card_deck');
+        return $this->redirectToRoute('card_deck_shuffle');
     }
 
     #[Route('/card/deck/draw', name: 'card_deck_draw')]

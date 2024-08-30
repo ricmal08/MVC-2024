@@ -24,6 +24,6 @@ class CardGraphic extends Card
     {
         $unicode = $this->representation[$this->rank];
         $color = $this->suit === 'hearts' || $this->suit === 'diamonds' ? 'red' : 'black';
-        return "<span style=\"color: $color; font-size: 2em;\">$unicode</span>";
+        return "<span style=\"color: $color; font-size: 3em;\">$unicode</span>";
     }
 }

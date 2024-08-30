@@ -46,6 +46,7 @@ ul {
   }
   
  ul li {
+    display: block; /* Overrides flex display */
     margin-right: 10px;
     margin: 0 auto;
   }
@@ -192,4 +193,16 @@ p {
     margin-bottom: 10px; /* Controls space below */
     margin-left: 0; /* Ensures all paragraphs start at the same left position */
     margin-right: 0; /* Ensures all paragraphs end at the same right position */
+}
+
+.api-list {
+    display: block; /* Overrides flex display */
+    list-style: none; /* Removes default bullet points */
+    padding: 0; /* Removes padding from the list */
+    margin: 0; /* Removes margin from the list */
+}
+
+.api-list li {
+    display: block; /* Ensures each item is on a new line */
+    margin-bottom: 10px; /* Adds space between each item */
 }

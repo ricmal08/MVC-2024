@@ -79,18 +79,22 @@ class __TwigTemplate_87525bb60e56740b267f1c23e023c73f extends Template
             <ul>
                 <li><a href=\"";
         // line 22
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("api_index");
+        yield "\">JSON API Routes</a></li>
+                <li><a href=\"";
+        // line 23
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
         yield "\">Session</a></li>
                 <li><a href=\"";
-        // line 23
+        // line 24
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("card_start");
         yield "\">Card</a></li>
                 <li><a href=\"";
-        // line 24
+        // line 25
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("about");
         yield "\">About</a></li>
                 <li><a href=\"";
-        // line 25
+        // line 26
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("report");
         yield "\">Report</a></li>
 
@@ -98,13 +102,13 @@ class __TwigTemplate_87525bb60e56740b267f1c23e023c73f extends Template
         </nav>
 
         <main>";
-        // line 30
+        // line 31
         yield from $this->unwrap()->yieldBlock('body', $context, $blocks);
         yield "</main>
         ";
-        // line 31
-        yield from         $this->loadTemplate("footer.html.twig", "base.html.twig", 31)->unwrap()->yield($context);
         // line 32
+        yield from         $this->loadTemplate("footer.html.twig", "base.html.twig", 32)->unwrap()->yield($context);
+        // line 33
         yield "    </body>
 </html>
 ";
@@ -185,7 +189,7 @@ class __TwigTemplate_87525bb60e56740b267f1c23e023c73f extends Template
         return; yield '';
     }
 
-    // line 30
+    // line 31
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -225,7 +229,7 @@ class __TwigTemplate_87525bb60e56740b267f1c23e023c73f extends Template
      */
     public function getDebugInfo()
     {
-        return array (  189 => 30,  175 => 13,  165 => 12,  151 => 9,  141 => 8,  121 => 5,  108 => 32,  106 => 31,  102 => 30,  94 => 25,  90 => 24,  86 => 23,  82 => 22,  74 => 17,  70 => 15,  68 => 12,  65 => 11,  62 => 8,  58 => 6,  54 => 5,  48 => 1,);
+        return array (  193 => 31,  179 => 13,  169 => 12,  155 => 9,  145 => 8,  125 => 5,  112 => 33,  110 => 32,  106 => 31,  98 => 26,  94 => 25,  90 => 24,  86 => 23,  82 => 22,  74 => 17,  70 => 15,  68 => 12,  65 => 11,  62 => 8,  58 => 6,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -251,6 +255,7 @@ class __TwigTemplate_87525bb60e56740b267f1c23e023c73f extends Template
         </header>
         <nav>
             <ul>
+                <li><a href=\"{{ path('api_index') }}\">JSON API Routes</a></li>
                 <li><a href=\"{{ path('home') }}\">Session</a></li>
                 <li><a href=\"{{ path('card_start') }}\">Card</a></li>
                 <li><a href=\"{{ path('about') }}\">About</a></li>

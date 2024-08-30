@@ -12,20 +12,45 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ControllerJson extends AbstractController
 {
+    
     #[Route("/api", name: "api_index")]
     public function apiIndex(): Response
     {
         $routes = [
-            ['path' => '/api/quote', 'description' => 'Returns a random quote.'],
-            ['path' => '/api/draw', 'description' => 'Returns a random card from Card Deck.'],
-            ['path' => '/api/deck', 'description' => 'Returns a the complete Card Deck.'],
-            ['path' => '/api/shuffle', 'description' => 'Returns a shuffled Card Deck.'],
-            ['path' => '/api/draw/:number', 'description' => 'Returns a given number of cards from Card Deck.']
+            ['name' => 'api_quote', 'path' => '/api/quote', 'description' => 'Returns a random quote.'],
+            ['name' => 'api_deck', 'path' => '/api/deck', 'description' => 'Returns the complete Card Deck.'],
+            ['name' => 'api_deck_draw', 'path' => '/api/deck/draw', 'description' => 'Returns a random card from Card Deck.'],
+            ['name' => 'api_deck_shuffle', 'path' => '/api/deck/shuffle', 'description' => 'Returns a shuffled Card Deck.'],
+            ['name' => 'api_deck_draw_number', 'path' => '/api/deck/draw/{number}', 'description' => 'Returns a given number of cards from Card Deck.']
 
             // ...
         ];
 
         return $this->render('api/index.html.twig', ['routes' => $routes]);
+    }
+
+    #[Route("/api/quote", name: "api_quote")]
+    public function apiQuote(): JsonResponse
+    {
+        // Define an array of quotes to choose from
+        $quotes = [
+            "The best way to predict the future is to invent it.",
+            "Success is not the key to happiness. Happiness is the key to success. If you love what you are doing, you will be successful.",
+            "You don not have to be great to start, but you have to start to be great.",
+        ];
+
+        // Pick a random quote from the array
+        $quote = $quotes[array_rand($quotes)];
+
+        // Generate the response data
+        $data = [
+            'quote' => $quote,
+            'date' => date('Y-m-d H:i:s', time()),
+            'timestamp' => time(),
+        ];
+
+        // Create and return the JSON response
+        return new JsonResponse($data);
     }
 
     #[Route("/api/deck", name: "api_deck")]
@@ -81,64 +106,55 @@ class ControllerJson extends AbstractController
         return $cards;
     }
 
-    #[Route('/api/deck/draw', name: 'api_deck_draw', methods: ['GET'])]
-    public function drawOneCard(Request $request)
+    #[Route("/api/deck/draw", name: "api_deck_draw", methods: ["POST"])]
+    public function drawOneCard(SessionInterface $session): JsonResponse
     {
-        // Get the deck from the session
-        $deck = $request->getSession()->get('deck');
-
-        // If the deck is not in the session, create a new one
-        if (!$deck instanceof DeckOfCards) {
-            $deck = new DeckOfCards();
-            $deck->shuffle();
-            $request->getSession()->set('deck', $deck);
-        }
-
+        // Retrieve the deck from the session, or initialize it if it does not exist
+        $deck = $session->get('deck', $this->initializeDeck());
+    
         // Draw one card from the deck
-        $card = $deck->drawCard();
-
-        // Save the deck back to the session
-        $request->getSession()->set('deck', $deck);
-
-        // Return the response as JSON
-        return new JsonResponse([
-            'card' => $card,
-            'remaining' => $deck->getSize(),
+        $card = array_pop($deck);
+    
+        // Save the updated deck back to the session
+        $session->set('deck', $deck);
+    
+        // Return a JSON response with the drawn card and the number of remaining cards
+        return $this->json([
+            'card' => $card ? $card->getAsHtmlString() : null, // Assuming getAsHtmlString() gives a suitable representation
+            'remaining_cards' => count($deck)
         ]);
     }
+    
 
-    #[Route('/api/deck/draw/{number}', name: 'api_deck_draw_number', methods: ['GET'])]
-    public function drawMultipleCards(Request $request, $number)
+
+    #[Route("/api/deck/draw/{number}", name: "api_deck_draw_number", methods: ["POST"])]
+    public function drawMultipleCards(SessionInterface $session, int $number): Response
     {
-        // Get the deck from the session
-        $deck = $request->getSession()->get('deck');
+        $deck = $session->get('deck', $this->initializeDeck());
+        $cards = array_splice($deck, -$number);
 
-        // If the deck is not in the session, create a new one
-        if (!$deck instanceof DeckOfCards) {
-            $deck = new DeckOfCards();
-            $deck->shuffle();
-            $request->getSession()->set('deck', $deck);
-        }
+        $session->set('deck', $deck);
 
-        // Draw the specified number of cards from the deck
-        $cards = [];
-        for ($i = 0; $i < $number; $i++) {
-            $card = $deck->drawCard();
-            if ($card instanceof CardGraphic) {
-                $cards[] = $card;
-            } else {
-                break;
+        return $this->json([
+            'cards' => $cards,
+            'remaining_cards' => count($deck)
+        ]);
+        return $this->render('card/deck.html.twig');
+    }
+
+    private function initializeDeck(): array
+    {
+        $suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
+        $values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'];
+
+        $deck = [];
+        foreach ($suits as $suit) {
+            foreach ($values as $value) {
+                $deck[] = "$value of $suit";
             }
         }
 
-        // Save the deck back to the session
-        $request->getSession()->set('deck', $deck);
-
-        // Return the response as JSON
-        return new JsonResponse([
-            'cards' => $cards,
-            'remaining' => $deck->getSize(),
-        ]);
+        shuffle($deck);
+        return $deck;
     }
-
 }

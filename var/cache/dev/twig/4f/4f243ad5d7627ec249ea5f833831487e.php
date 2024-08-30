@@ -67,27 +67,46 @@ class __TwigTemplate_f84a5cfd7f20ef3090bf94d89e6c13af extends Template
 
         // line 4
         yield "    <h1>API Routes</h1>
-    <ul>
-        ";
+  <ul class=\"api-list\">
+    ";
         // line 6
         $context['_parent'] = $context;
         $context['_seq'] = CoreExtension::ensureTraversable((isset($context["routes"]) || array_key_exists("routes", $context) ? $context["routes"] : (function () { throw new RuntimeError('Variable "routes" does not exist.', 6, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["route"]) {
             // line 7
-            yield "        <li><a href=\"";
-            yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("api_quote");
-            yield "\">";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["route"], "path", [], "any", false, false, false, 7), "html", null, true);
-            yield "</a> - ";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["route"], "description", [], "any", false, false, false, 7), "html", null, true);
-            yield "</li>
-        ";
+            yield "        <li>
+            ";
+            // line 8
+            if ((CoreExtension::getAttribute($this->env, $this->source, $context["route"], "name", [], "any", false, false, false, 8) == "api_deck_draw_number")) {
+                // line 9
+                yield "                ";
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["route"], "path", [], "any", false, false, false, 9), "html", null, true);
+                yield " - ";
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["route"], "description", [], "any", false, false, false, 9), "html", null, true);
+                yield "
+            ";
+            } else {
+                // line 11
+                yield "                <a href=\"";
+                yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath(CoreExtension::getAttribute($this->env, $this->source, $context["route"], "name", [], "any", false, false, false, 11));
+                yield "\">";
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["route"], "path", [], "any", false, false, false, 11), "html", null, true);
+                yield "</a> - ";
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["route"], "description", [], "any", false, false, false, 11), "html", null, true);
+                yield "
+            ";
+            }
+            // line 13
+            yield "        </li>
+    ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['route'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 9
-        yield "    </ul>
+        // line 15
+        yield "</ul>
+
+
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -119,7 +138,7 @@ class __TwigTemplate_f84a5cfd7f20ef3090bf94d89e6c13af extends Template
      */
     public function getDebugInfo()
     {
-        return array (  90 => 9,  77 => 7,  73 => 6,  69 => 4,  59 => 3,  36 => 1,);
+        return array (  107 => 15,  100 => 13,  90 => 11,  82 => 9,  80 => 8,  77 => 7,  73 => 6,  69 => 4,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -128,11 +147,19 @@ class __TwigTemplate_f84a5cfd7f20ef3090bf94d89e6c13af extends Template
 
 {% block body %}
     <h1>API Routes</h1>
-    <ul>
-        {% for route in routes %}
-        <li><a href=\"{{ path('api_quote') }}\">{{ route.path }}</a> - {{ route.description }}</li>
-        {% endfor %}
-    </ul>
+  <ul class=\"api-list\">
+    {% for route in routes %}
+        <li>
+            {% if route.name == 'api_deck_draw_number' %}
+                {{ route.path }} - {{ route.description }}
+            {% else %}
+                <a href=\"{{ path(route.name) }}\">{{ route.path }}</a> - {{ route.description }}
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+
+
 {% endblock %}
 ", "api/index.html.twig", "/home/ciderfabriken/dbwebb-kurser/mvc_new/me/report/templates/api/index.html.twig");
     }

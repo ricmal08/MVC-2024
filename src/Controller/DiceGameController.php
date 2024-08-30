@@ -14,13 +14,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DiceGameController extends AbstractController
 {
-    #[Route('/card', name: 'card')]
-    public function card(): Response
-    {
-        return $this->render('card.html.twig');
-    }
-
-
     #[Route("/game/pig", name: "pig_start")]
     public function home(): Response
     {

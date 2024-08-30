@@ -27,7 +27,6 @@ return [
     'api_deck_shuffle' => [[], ['_controller' => 'App\\Controller\\ControllerJson::apiDeckShuffle'], [], [['text', '/api/deck/shuffle']], [], [], []],
     'api_deck_draw' => [[], ['_controller' => 'App\\Controller\\ControllerJson::drawOneCard'], [], [['text', '/api/deck/draw']], [], [], []],
     'api_deck_draw_number' => [['number'], ['_controller' => 'App\\Controller\\ControllerJson::drawMultipleCards'], [], [['variable', '/', '[^/]++', 'number', true], ['text', '/api/deck/draw']], [], [], []],
-    'card' => [[], ['_controller' => 'App\\Controller\\DiceGameController::card'], [], [['text', '/card']], [], [], []],
     'pig_start' => [[], ['_controller' => 'App\\Controller\\DiceGameController::home'], [], [['text', '/game/pig']], [], [], []],
     'test_roll_dice' => [[], ['_controller' => 'App\\Controller\\DiceGameController::testRollDice'], [], [['text', '/game/pig/test/roll']], [], [], []],
     'test_roll_num_dices' => [['num'], ['_controller' => 'App\\Controller\\DiceGameController::testRollDices'], ['num' => '\\d+'], [['variable', '/', '\\d+', 'num', true], ['text', '/game/pig/test/roll']], [], [], []],
