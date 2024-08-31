@@ -11,7 +11,30 @@
                 <a href="{{ path(route.name) }}">{{ route.path }}</a> - {{ route.description }}
             {% endif %}
         </li>
+
+        
     {% endfor %}
+
+    <form action="{{ path('api_deck_shuffle') }}" method="post" style="display:inline;">
+        <button type="submit">Shuffle Deck</button>
+    </form> - Shuffles the deck of cards.
+  <br>
+   <br>
+    <form action="{{ path('api_deck_draw') }}" method="post" style="display:inline;">
+    <button type="submit">Draw One Card</button>
+    </form> - Draws one card from the deck.
+    <br>
+     <br>
+
+    <form action="{{ path('api_deck_draw_number', { 'number': 1 }) }}" method="post" style="display:inline;">
+    <input type="number" name="number" value="1" min="1" required>
+    <button type="submit">Draw Multiple Cards</button>
+    </form> - Draws multiple cards from the deck.
+        
+
+
+
+
 </ul>
 
 

@@ -66,7 +66,7 @@ class __TwigTemplate_31bd9734a9806745944d7c22381af2ff extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        yield "Shuffled Deck";
+        yield "Draw Deck";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -135,7 +135,7 @@ class __TwigTemplate_31bd9734a9806745944d7c22381af2ff extends Template
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Shuffled Deck{% endblock %}
+{% block title %}Draw Deck{% endblock %}
 
 {% block body %}
 <h1>Draw a card</h1>

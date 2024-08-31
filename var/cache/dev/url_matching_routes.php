@@ -21,8 +21,9 @@ return [
         '/card/deck/draw' => [[['_route' => 'card_deck_draw', '_controller' => 'App\\Controller\\CardGameController::drawCard'], null, null, null, false, false, null]],
         '/api' => [[['_route' => 'api_index', '_controller' => 'App\\Controller\\ControllerJson::apiIndex'], null, null, null, false, false, null]],
         '/api/deck' => [[['_route' => 'api_deck', '_controller' => 'App\\Controller\\ControllerJson::apiDeck'], null, null, null, false, false, null]],
-        '/api/deck/shuffle' => [[['_route' => 'api_deck_shuffle', '_controller' => 'App\\Controller\\ControllerJson::apiDeckShuffle'], null, ['GET' => 0], null, false, false, null]],
+        '/api/deck/shuffle' => [[['_route' => 'api_deck_shuffle', '_controller' => 'App\\Controller\\ControllerJson::apiDeckShuffle'], null, ['POST' => 0], null, false, false, null]],
         '/api/deck/draw' => [[['_route' => 'api_deck_draw', '_controller' => 'App\\Controller\\ControllerJson::drawOneCard'], null, ['POST' => 0], null, false, false, null]],
+        '/session/delete' => [[['_route' => 'session_delete', '_controller' => 'App\\Controller\\ControllerJson::deleteSession'], null, ['POST' => 0], null, false, false, null]],
         '/game/pig' => [[['_route' => 'pig_start', '_controller' => 'App\\Controller\\DiceGameController::home'], null, null, null, false, false, null]],
         '/game/pig/test/roll' => [[['_route' => 'test_roll_dice', '_controller' => 'App\\Controller\\DiceGameController::testRollDice'], null, null, null, false, false, null]],
         '/game/pig/init' => [
@@ -56,10 +57,10 @@ return [
                     .')'
                 .')'
                 .'|/card/deck/draw/([^/]++)(*:193)'
-                .'|/api/deck/draw/([^/]++)(*:224)'
+                .'|/api/deck/draw(?:/([^/]++))?(*:229)'
                 .'|/game/pig/test/(?'
-                    .'|roll/(\\d+)(*:260)'
-                    .'|dicehand/(\\d+)(*:282)'
+                    .'|roll/(\\d+)(*:265)'
+                    .'|dicehand/(\\d+)(*:287)'
                 .')'
             .')/?$}sDu',
     ],
@@ -72,9 +73,9 @@ return [
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         193 => [[['_route' => 'card_deck_draw_count', '_controller' => 'App\\Controller\\CardGameController::drawCount'], ['count'], null, null, false, true, null]],
-        224 => [[['_route' => 'api_deck_draw_number', '_controller' => 'App\\Controller\\ControllerJson::drawMultipleCards'], ['number'], ['POST' => 0], null, false, true, null]],
-        260 => [[['_route' => 'test_roll_num_dices', '_controller' => 'App\\Controller\\DiceGameController::testRollDices'], ['num'], null, null, false, true, null]],
-        282 => [
+        229 => [[['_route' => 'api_deck_draw_number', 'number' => null, '_controller' => 'App\\Controller\\ControllerJson::drawMultipleCards'], ['number'], ['POST' => 0], null, false, true, null]],
+        265 => [[['_route' => 'test_roll_num_dices', '_controller' => 'App\\Controller\\DiceGameController::testRollDices'], ['num'], null, null, false, true, null]],
+        287 => [
             [['_route' => 'test_dicehand', '_controller' => 'App\\Controller\\DiceGameController::testDiceHand'], ['num'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

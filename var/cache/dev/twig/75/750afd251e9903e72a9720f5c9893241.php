@@ -73,7 +73,7 @@ class __TwigTemplate_87525bb60e56740b267f1c23e023c73f extends Template
         // line 17
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/abstract.png"), "html", null, true);
         yield ")\">
-            <span class=\"site-title\">Min Symfony-sida</span>
+            <span class=\"site-title\">MVC 2024</span>
         </header>
         <nav>
             <ul>
@@ -251,7 +251,7 @@ class __TwigTemplate_87525bb60e56740b267f1c23e023c73f extends Template
     </head>
     <body>
         <header class=\"site-header\" style=\"background-image: url({{ asset('img/abstract.png') }})\">
-            <span class=\"site-title\">Min Symfony-sida</span>
+            <span class=\"site-title\">MVC 2024</span>
         </header>
         <nav>
             <ul>

@@ -6,7 +6,10 @@
     <h1>Session</h1>
         <p>Här kommer det att vara en session.</p>
         <br>
-        
+        <form action="{{ path('session_delete') }}" method="post">
+            <button type="submit">Reset Session</button>
+        </form>
+
         <br>
 
 {% endblock %}
