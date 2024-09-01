@@ -3,13 +3,46 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
-    <h1>Session</h1>
-        <p>Här kommer det att vara en session.</p>
+    <h1>Session Debug information</h1>
         <br>
         <form action="{{ path('session_delete') }}" method="post">
             <button type="submit">Reset Session</button>
         </form>
-
         <br>
+
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="flash-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    {% if sessionData is not empty %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Key</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for key, value in sessionData %}
+                    <tr>
+                        <td>{{ key }}</td>
+                        <td>
+                            {% if value is iterable %}
+                                <pre>{{ dump(value) }}</pre>
+                            {% else %}
+                                {{ value }}
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No data in session.</p>
+    {% endif %}
 
 {% endblock %}

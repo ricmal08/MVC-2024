@@ -83,7 +83,7 @@ class __TwigTemplate_87525bb60e56740b267f1c23e023c73f extends Template
         yield "\">JSON API Routes</a></li>
                 <li><a href=\"";
         // line 23
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("session_debug");
         yield "\">Session</a></li>
                 <li><a href=\"";
         // line 24
@@ -256,7 +256,7 @@ class __TwigTemplate_87525bb60e56740b267f1c23e023c73f extends Template
         <nav>
             <ul>
                 <li><a href=\"{{ path('api_index') }}\">JSON API Routes</a></li>
-                <li><a href=\"{{ path('home') }}\">Session</a></li>
+                <li><a href=\"{{ path('session_debug') }}\">Session</a></li>
                 <li><a href=\"{{ path('card_start') }}\">Card</a></li>
                 <li><a href=\"{{ path('about') }}\">About</a></li>
                 <li><a href=\"{{ path('report') }}\">Report</a></li>

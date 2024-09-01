@@ -22,6 +22,7 @@ return [
     'card_deck_shuffle' => [[], ['_controller' => 'App\\Controller\\CardGameController::shuffleDeck'], [], [['text', '/card/deck/shuffle']], [], [], []],
     'card_deck_draw' => [[], ['_controller' => 'App\\Controller\\CardGameController::drawCard'], [], [['text', '/card/deck/draw']], [], [], []],
     'card_deck_draw_count' => [['count'], ['_controller' => 'App\\Controller\\CardGameController::drawCount'], [], [['variable', '/', '[^/]++', 'count', true], ['text', '/card/deck/draw']], [], [], []],
+    'session_debug' => [[], ['_controller' => 'App\\Controller\\ControllerJson::sessionDebug'], [], [['text', '/session']], [], [], []],
     'api_index' => [[], ['_controller' => 'App\\Controller\\ControllerJson::apiIndex'], [], [['text', '/api']], [], [], []],
     'api_deck' => [[], ['_controller' => 'App\\Controller\\ControllerJson::apiDeck'], [], [['text', '/api/deck']], [], [], []],
     'api_deck_shuffle' => [[], ['_controller' => 'App\\Controller\\ControllerJson::apiDeckShuffle'], [], [['text', '/api/deck/shuffle']], [], [], []],

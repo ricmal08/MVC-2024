@@ -16,6 +16,6 @@ if (!\class_exists(App_KernelDevDebugContainer::class, false)) {
 
 return new \ContainerGL4RxiG\App_KernelDevDebugContainer([
     'container.build_hash' => 'GL4RxiG',
-    'container.build_id' => 'ce4a605b',
-    'container.build_time' => 1725062267,
+    'container.build_id' => 'ea1bba3b',
+    'container.build_time' => 1725226518,
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerGL4RxiG');

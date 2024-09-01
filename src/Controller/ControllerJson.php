@@ -13,6 +13,17 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ControllerJson extends AbstractController
 {
+    #[Route('/session', name: 'session_debug')]
+    public function sessionDebug(SessionInterface $session): Response
+    {
+        // hämtar all sessionsdata
+        $sessionData = $session->all();
+
+        return $this->render('session.html.twig', [
+            'sessionData' => $sessionData
+        ]);
+    }
+
     #[Route("/api", name: "api_index")]
     public function apiIndex(): Response
     {
@@ -125,14 +136,12 @@ class ControllerJson extends AbstractController
     #[Route("/api/deck/draw/{number}", name: "api_deck_draw_number", methods: ["POST"])]
     public function drawMultipleCards(SessionInterface $session, Request $request, int $number = null): JsonResponse
     {
-        // Retrieve the current deck from the session or initialize a new one
 
         $number = $request->request->get('number', $number);
 
 
         $deck = $session->get('deck', $this->initializeDeck());
 
-        // Validate the requested number of cards
         if ($number < 1) {
             return $this->json(['error' => 'The number must be at least 1.'], 400);
         }
@@ -141,13 +150,10 @@ class ControllerJson extends AbstractController
             return $this->json(['error' => 'Not enough cards in the deck.'], 400);
         }
 
-        // Draw the requested number of cards from the beginning of the deck
         $cards = array_splice($deck, 0, $number);
 
-        // Save the updated deck back to the session
         $session->set('deck', $deck);
 
-        // Return the drawn cards and the number of remaining cards
         return $this->json([
             'cards' => $cards,
             'remaining_cards' => count($deck)
@@ -174,14 +180,13 @@ class ControllerJson extends AbstractController
     }
 
     #[Route("/session/delete", name: "session_delete", methods: ["POST"])]
-    public function deleteSession(SessionInterface $session): JsonResponse
+    public function deleteSession(SessionInterface $session): Response
     {
         // Clear all session data
         $session->clear();
 
-        return new JsonResponse([
-            'status' => 'success',
-            'message' => 'Session data has been cleared.'
-        ]);
+        $this->addFlash('success', 'Nu är sessionen raderad.');
+
+        return $this->redirectToRoute('session_debug');
     }
 }
