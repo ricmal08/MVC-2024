@@ -3,16 +3,18 @@
 {% block title %}Draw Cards{% endblock %}
 
 {% block body %}
-    <h1>Draw Cards</h1>
-    <p>Number of cards remaining: {{ remainingCards }}</p>
-    <table>
-        <tr>
-            <th>Card</th>
-        </tr>
-        {% for card in drawnCards %}
-            <tr>
-                <td>{{ card.getAsHtmlString()|raw }}</td>
-            </tr>
+<h1>Drawn Cards</h1>
+<div class="card-container">
+    {% if cards is not empty %}
+        {% for card in cards %}
+            <div class="card">
+                <span class="card-value">{{ card.value }}</span>
+                <span class="card-suit">{{ card.suit }}</span>
+            </div>
         {% endfor %}
-    </table>
+    {% else %}
+        <p>No cards drawn yet.</p>
+    {% endif %}
+</div>
+<p>Remaining cards in deck: {{ remainingCards }}</p>
 {% endblock %}

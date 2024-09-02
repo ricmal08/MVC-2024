@@ -15,24 +15,4 @@ class Card
         $this->value = $value;
     }
 
-
-    public function getSuit(): string
-    {
-        return $this->suit;
-    }
-
-    public function getRank(): string
-    {
-        return $this->rank;
-    }
-
-    public function __toString(): string
-    {
-        return "{$this->rank} of {$this->suit}";
-    }
-
-    public function getValue(): int
-    {
-        return $this->value;
-    }
 }

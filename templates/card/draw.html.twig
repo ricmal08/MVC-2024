@@ -3,8 +3,16 @@
 {% block title %}Draw Deck{% endblock %}
 
 {% block body %}
-<h1>Draw a card</h1>
-<p>The card drawn is: {{ card.getAsHtmlString()|raw }}</p>
+<h1>Draw a Card</h1>
+<div class="card-container">
+    {% if card %}
+        <div class="card">
+            <span class="card-value">{{ card.value }}</span>
+            <span class="card-suit">{{ card.suit }}</span>
+        </div>
+    {% else %}
+        <p>No card drawn yet.</p>
+    {% endif %}
+</div>
 <p>Remaining cards in deck: {{ remainingCards }}</p>
-
 {% endblock %}

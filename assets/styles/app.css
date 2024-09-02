@@ -168,7 +168,7 @@ ul {
     border-color: #f5c6cb;
 }
 
-/*Card/Deck-list
+/*Card Deck
 */
 tbody {
     display: inline-block;
@@ -183,26 +183,64 @@ table {
 }
 
 p {
-    text-align: justify; /* or 'center', 'left', 'right' depending on your preference */
-    margin: 0 auto; /* Optional: Centers the paragraph block */
+    text-align: justify;
+    margin: 0 auto;
     
 }
 
 p {
-    margin-top: 10px; /* Controls space above */
-    margin-bottom: 10px; /* Controls space below */
-    margin-left: 0; /* Ensures all paragraphs start at the same left position */
-    margin-right: 0; /* Ensures all paragraphs end at the same right position */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .api-list {
-    display: block; /* Overrides flex display */
-    list-style: none; /* Removes default bullet points */
-    padding: 0; /* Removes padding from the list */
-    margin: 0; /* Removes margin from the list */
+    display: block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .api-list li {
-    display: block; /* Ensures each item is on a new line */
-    margin-bottom: 10px; /* Adds space between each item */
+    display: block;
+    margin-bottom: 10px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.suit-section {
+    margin: 20px;
+}
+
+.card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.card {
+    width: 50px;
+    height: 70px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 14px;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+}
+
+.card-suit {
+    font-size: 20px;
+}
+
+.card-value {
+    font-weight: bold;
 }

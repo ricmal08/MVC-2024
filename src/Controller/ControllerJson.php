@@ -2,8 +2,6 @@
 
 namespace App\Controller;
 
-use App\Card\DeckOfCards;
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,6 +11,26 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ControllerJson extends AbstractController
 {
+    
+    #[Route("/about", name: "about")]
+    public function about(): Response
+    {
+        return $this->render('about.html.twig');
+    }
+
+    #[Route("/report", name: "report")]
+    public function report(): Response
+    {
+        return $this->render('report.html.twig');
+    }
+
+    #[Route("/lucky", name: "lucky")]
+    public function lucky(): Response
+    {
+        return $this->render('lucky.html.twig');
+    }
+
+    // Sessionshanterare
     #[Route('/session', name: 'session_debug')]
     public function sessionDebug(SessionInterface $session): Response
     {
@@ -24,6 +42,37 @@ class ControllerJson extends AbstractController
         ]);
     }
 
+    /**
+     * Initiera en ny blandad kortlek.
+     */
+    private function initializeDeck(): array
+    {
+        $suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
+        $values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'];
+
+        $deck = [];
+        foreach ($suits as $suit) {
+            foreach ($values as $value) {
+                $deck[] = "$value of $suit";
+            }
+        }
+
+        shuffle($deck);
+        return $deck;
+    }
+
+    #[Route("/session/delete", name: "session_delete", methods: ["POST"])]
+    public function deleteSession(SessionInterface $session): Response
+    {
+
+        $session->clear();
+
+        $this->addFlash('success', 'Nu är sessionen raderad.');
+
+        return $this->redirectToRoute('session_debug');
+    }
+
+    //JSON API routing
     #[Route("/api", name: "api_index")]
     public function apiIndex(): Response
     {
@@ -160,33 +209,4 @@ class ControllerJson extends AbstractController
         ]);
     }
 
-    /**
-     * Initiera en ny blandad kortlek.
-     */
-    private function initializeDeck(): array
-    {
-        $suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
-        $values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'];
-
-        $deck = [];
-        foreach ($suits as $suit) {
-            foreach ($values as $value) {
-                $deck[] = "$value of $suit";
-            }
-        }
-
-        shuffle($deck);
-        return $deck;
-    }
-
-    #[Route("/session/delete", name: "session_delete", methods: ["POST"])]
-    public function deleteSession(SessionInterface $session): Response
-    {
-        // Clear all session data
-        $session->clear();
-
-        $this->addFlash('success', 'Nu är sessionen raderad.');
-
-        return $this->redirectToRoute('session_debug');
-    }
 }
