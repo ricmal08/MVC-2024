@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Card\Card;
-use App\Card\DeckOfCards;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,7 +15,7 @@ class CardGameController extends AbstractController
     //#[Route("/home", name: "home")]
     //public function home(): Response
     //{
-        //return $this->render('session.html.twig');
+    //return $this->render('session.html.twig');
     //}
 
     #[Route("/card", name: "card_start")]
@@ -27,18 +26,18 @@ class CardGameController extends AbstractController
 
     #[Route("/card/deck", name: "card_deck")]
     public function showDeck(): Response
-{
-    // Hämtar data via function getCards();
-    $cards = $this->getCards();
+    {
+        // Hämtar data via function getCards();
+        $cards = $this->getCards();
 
-    // skickar en cards array till Twig
-    return $this->render('card/deck.html.twig', [
-        'cards' => $cards
-    ]);
-}
+        // skickar en cards array till Twig
+        return $this->render('card/deck.html.twig', [
+            'cards' => $cards
+        ]);
+    }
 
-    
-    #[Route('/card/deck/shuffle', name: 'card_deck_shuffle', methods: ['GET'] )]
+
+    #[Route('/card/deck/shuffle', name: 'card_deck_shuffle', methods: ['GET'])]
     public function shuffleDeck(SessionInterface $session): Response
     {
         // Hämtar kortleken från sessionen, eller initierar ny
@@ -46,11 +45,11 @@ class CardGameController extends AbstractController
 
         // blandar kortleken
         shuffle($deck);
-    
+
         // sparar den blandade kortleken till sessionen
         $session->set('deck', $deck);
 
-        
+
         return $this->render('card/shuffle.html.twig', [
             'deck' => $deck,
         ]);

@@ -11,7 +11,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ControllerJson extends AbstractController
 {
-    
     #[Route("/about", name: "about")]
     public function about(): Response
     {

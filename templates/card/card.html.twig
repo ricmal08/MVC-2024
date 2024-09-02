@@ -12,17 +12,14 @@
 <br>
 <p>Här är en genomgång över samtliga applikationsklasser samt struktur på klasserna och dess relationer som används i min konstruktion för 'Card Game'.</p>
 
-<p>Ytterligare längre ned på sidan har jag även inkluderat ett UML klass diagram som visualiserar strukturen och relationerna.</p>
+<p>Jag har även inkluderat ett UML-klass diagram som visualiserar strukturen och relationerna.</p>
 
 <br>
-<p><b>Card</b> - En klass som representerar ett enskilt kort i en kortlek. Klassen innehåller egenskaper som färg(suit), värde(value) och en rang(rank). Klassen innehåller också två metoder getSuit() och getRank() för att hämta färg och rang.</p>
-<p><b>CardHand</b> - En klass som representerar en giv</p>
-<p><b>DeckOfCards</b> - En klass som representerar en kortlek. Klassen innehåller en array av Card-objekt och metoder för att skapa, blanda och dra kort från kortleken.</p>
-<p><b>CardGraphic</b> - En subklass till Card som innehåller en länk till en bild som representerar kortet.</p>
-<p><b>CardGameController</b> - En controller-klass som hanterar alla förfrågningar som rör spelet. Klassen använder DeckOfCards för att skapa en kortlek och CardGraphic för att visa korten i spelet.</p>
-<p><b>Twig-templates</b> - En serie Twig-templates för att visa kortleken och resultaten av dragningarna.</p>
+<p><b>Card</b> - Representerar ett enskilt spelkort med egenskaper för färg (suit), rank (värde på kortet, till exempel "Kung" eller "Ess") samt ett numeriskt värde (value).</p>
+<p><b>CardGraphic</b> - En subklass till Card som innehåller en rank till en symbol som representerar kortet.</p>
+<p><b>CardGameController</b> - Hanterar spelrelaterad logik för kortleken, såsom att visa kortleken, dra kort, och visa korten som har dragits. Denna controller innehåller flera rutter (routes) som definierar olika funktioner i kortspelet. Controllern använder Card-klassen för att representera varje enskilt kort i kortleken. När kort dras eller visas, skapas och hanteras instanser av Card-klassen inom kontrollern. Funktionen för att initialisera kortleken (initializeDeck) skapar kort som är instanser av Card-klassen.</p>
 <br>
-<img src="{{ asset('img/uml.jpg') }}" alt="" class="uml">
+<img src="{{ asset('img/UMLCardgame.jpg') }}" alt="" class="uml">
 <br>
 
 {% endblock %}
