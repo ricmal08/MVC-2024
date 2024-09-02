@@ -4,20 +4,13 @@
 
 {% block body %}
     <h1>Deck of Cards</h1>
-
-    <table>
-        <tr>
-            {#<th>Suit</th>
-            <th>Value</th>#}
-        </tr>
-        {% for suit, cards in sortedCards %}
-            {% for card in cards %}
-                <tr>
-                    <td style="display: inline-block;">{{ card.getAsHtmlString()|raw }}</td>
-                    {#<td>{{ suit }}</td>
-                    <td>{{ card.getValue() }}</td>#}
-                </tr>
-            {% endfor %}
+    <div class="card-container">
+        {# Loop through each card and display its suit and value #}
+        {% for card in cards %}
+            <div class="card">
+                <span class="card-value">{{ card.value }}</span>
+                <span class="card-suit">{{ card.suit }}</span>
+            </div>
         {% endfor %}
-    </table>
+    </div>
 {% endblock %}

@@ -21,6 +21,9 @@ return [
     'card_deck_shuffle' => [[], ['_controller' => 'App\\Controller\\CardGameController::shuffleDeck'], [], [['text', '/card/deck/shuffle']], [], [], []],
     'card_deck_draw' => [[], ['_controller' => 'App\\Controller\\CardGameController::drawCard'], [], [['text', '/card/deck/draw']], [], [], []],
     'card_deck_draw_count' => [['number'], ['number' => null, '_controller' => 'App\\Controller\\CardGameController::drawCount'], [], [['variable', '/', '[^/]++', 'number', true], ['text', '/card/deck/draw']], [], [], []],
+    'about' => [[], ['_controller' => 'App\\Controller\\ControllerJson::about'], [], [['text', '/about']], [], [], []],
+    'report' => [[], ['_controller' => 'App\\Controller\\ControllerJson::report'], [], [['text', '/report']], [], [], []],
+    'lucky' => [[], ['_controller' => 'App\\Controller\\ControllerJson::lucky'], [], [['text', '/lucky']], [], [], []],
     'session_debug' => [[], ['_controller' => 'App\\Controller\\ControllerJson::sessionDebug'], [], [['text', '/session']], [], [], []],
     'session_delete' => [[], ['_controller' => 'App\\Controller\\ControllerJson::deleteSession'], [], [['text', '/session/delete']], [], [], []],
     'api_index' => [[], ['_controller' => 'App\\Controller\\ControllerJson::apiIndex'], [], [['text', '/api']], [], [], []],
@@ -38,8 +41,4 @@ return [
     'pig_play' => [[], ['_controller' => 'App\\Controller\\DiceGameController::play'], [], [['text', '/game/pig/play']], [], [], []],
     'pig_roll' => [[], ['_controller' => 'App\\Controller\\DiceGameController::roll'], [], [['text', '/game/pig/roll']], [], [], []],
     'pig_save' => [[], ['_controller' => 'App\\Controller\\DiceGameController::save'], [], [['text', '/game/pig/save']], [], [], []],
-    'lucky_number' => [[], ['_controller' => 'App\\Controller\\LuckyControllerTwig::number'], [], [['text', '/lucky/number/twig']], [], [], []],
-    'about' => [[], ['_controller' => 'App\\Controller\\LuckyControllerTwig::about'], [], [['text', '/about']], [], [], []],
-    'report' => [[], ['_controller' => 'App\\Controller\\LuckyControllerTwig::report'], [], [['text', '/report']], [], [], []],
-    'lucky' => [[], ['_controller' => 'App\\Controller\\LuckyControllerTwig::lucky'], [], [['text', '/lucky']], [], [], []],
 ];

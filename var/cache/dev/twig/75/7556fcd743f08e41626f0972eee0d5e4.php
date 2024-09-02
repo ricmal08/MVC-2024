@@ -88,44 +88,31 @@ class __TwigTemplate_706846a1fac218dc4bce60e7bfb265c3 extends Template
 
         // line 6
         yield "    <h1>Deck of Cards</h1>
-
-    <table>
-        <tr>
-            ";
-        // line 12
-        yield "        </tr>
+    <div class=\"card-container\">
         ";
-        // line 13
+        // line 9
+        yield "        ";
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["sortedCards"]) || array_key_exists("sortedCards", $context) ? $context["sortedCards"] : (function () { throw new RuntimeError('Variable "sortedCards" does not exist.', 13, $this->source); })()));
-        foreach ($context['_seq'] as $context["suit"] => $context["cards"]) {
-            // line 14
-            yield "            ";
-            $context['_parent'] = $context;
-            $context['_seq'] = CoreExtension::ensureTraversable($context["cards"]);
-            foreach ($context['_seq'] as $context["_key"] => $context["card"]) {
-                // line 15
-                yield "                <tr>
-                    <td style=\"display: inline-block;\">";
-                // line 16
-                yield CoreExtension::getAttribute($this->env, $this->source, $context["card"], "getAsHtmlString", [], "method", false, false, false, 16);
-                yield "</td>
-                    ";
-                // line 19
-                yield "                </tr>
-            ";
-            }
-            $_parent = $context['_parent'];
-            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['card'], $context['_parent'], $context['loop']);
-            $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 21
-            yield "        ";
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["cards"]) || array_key_exists("cards", $context) ? $context["cards"] : (function () { throw new RuntimeError('Variable "cards" does not exist.', 9, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["card"]) {
+            // line 10
+            yield "            <div class=\"card\">
+                <span class=\"card-value\">";
+            // line 11
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["card"], "value", [], "any", false, false, false, 11), "html", null, true);
+            yield "</span>
+                <span class=\"card-suit\">";
+            // line 12
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["card"], "suit", [], "any", false, false, false, 12), "html", null, true);
+            yield "</span>
+            </div>
+        ";
         }
         $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['suit'], $context['cards'], $context['_parent'], $context['loop']);
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['card'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 22
-        yield "    </table>
+        // line 15
+        yield "    </div>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -157,7 +144,7 @@ class __TwigTemplate_706846a1fac218dc4bce60e7bfb265c3 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  128 => 22,  122 => 21,  115 => 19,  111 => 16,  108 => 15,  103 => 14,  99 => 13,  96 => 12,  90 => 6,  80 => 5,  60 => 3,  37 => 1,);
+        return array (  115 => 15,  106 => 12,  102 => 11,  99 => 10,  94 => 9,  90 => 6,  80 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -168,22 +155,15 @@ class __TwigTemplate_706846a1fac218dc4bce60e7bfb265c3 extends Template
 
 {% block body %}
     <h1>Deck of Cards</h1>
-
-    <table>
-        <tr>
-            {#<th>Suit</th>
-            <th>Value</th>#}
-        </tr>
-        {% for suit, cards in sortedCards %}
-            {% for card in cards %}
-                <tr>
-                    <td style=\"display: inline-block;\">{{ card.getAsHtmlString()|raw }}</td>
-                    {#<td>{{ suit }}</td>
-                    <td>{{ card.getValue() }}</td>#}
-                </tr>
-            {% endfor %}
+    <div class=\"card-container\">
+        {# Loop through each card and display its suit and value #}
+        {% for card in cards %}
+            <div class=\"card\">
+                <span class=\"card-value\">{{ card.value }}</span>
+                <span class=\"card-suit\">{{ card.suit }}</span>
+            </div>
         {% endfor %}
-    </table>
+    </div>
 {% endblock %}
 ", "card/deck.html.twig", "/home/ciderfabriken/dbwebb-kurser/mvc_new/me/report/templates/card/deck.html.twig");
     }

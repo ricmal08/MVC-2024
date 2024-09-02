@@ -27,28 +27,16 @@ class CardGameController extends AbstractController
 
     #[Route("/card/deck", name: "card_deck")]
     public function showDeck(): Response
-    {
+{
+    // Hämtar data via function getCards();
+    $cards = $this->getCards();
 
-        $suits = ['hearts' => '♥', 'diamonds' => '♦', 'clubs' => '♣', 'spades' => '♠'];
-        $values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
-    
+    // skickar en cards array till Twig
+    return $this->render('card/deck.html.twig', [
+        'cards' => $cards
+    ]);
+}
 
-        $cards = [];
-    
-
-        foreach ($suits as $suitName => $suitSymbol) {
-            foreach ($values as $value) {
-                $cards[$suitName][] = [
-                    'suit' => $suitSymbol,
-                    'value' => $value
-                ];
-            }
-        }
-
-        return $this->render('card/deck.html.twig', [
-            'cards' => $cards
-        ]);
-    }
     
     #[Route('/card/deck/shuffle', name: 'card_deck_shuffle', methods: ['GET'] )]
     public function shuffleDeck(SessionInterface $session): Response

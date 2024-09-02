@@ -18,6 +18,9 @@ return [
         '/card/deck' => [[['_route' => 'card_deck', '_controller' => 'App\\Controller\\CardGameController::showDeck'], null, null, null, false, false, null]],
         '/card/deck/shuffle' => [[['_route' => 'card_deck_shuffle', '_controller' => 'App\\Controller\\CardGameController::shuffleDeck'], null, ['GET' => 0], null, false, false, null]],
         '/card/deck/draw' => [[['_route' => 'card_deck_draw', '_controller' => 'App\\Controller\\CardGameController::drawCard'], null, null, null, false, false, null]],
+        '/about' => [[['_route' => 'about', '_controller' => 'App\\Controller\\ControllerJson::about'], null, null, null, false, false, null]],
+        '/report' => [[['_route' => 'report', '_controller' => 'App\\Controller\\ControllerJson::report'], null, null, null, false, false, null]],
+        '/lucky' => [[['_route' => 'lucky', '_controller' => 'App\\Controller\\ControllerJson::lucky'], null, null, null, false, false, null]],
         '/session' => [[['_route' => 'session_debug', '_controller' => 'App\\Controller\\ControllerJson::sessionDebug'], null, null, null, false, false, null]],
         '/session/delete' => [[['_route' => 'session_delete', '_controller' => 'App\\Controller\\ControllerJson::deleteSession'], null, ['POST' => 0], null, false, false, null]],
         '/api' => [[['_route' => 'api_index', '_controller' => 'App\\Controller\\ControllerJson::apiIndex'], null, null, null, false, false, null]],
@@ -34,10 +37,6 @@ return [
         '/game/pig/play' => [[['_route' => 'pig_play', '_controller' => 'App\\Controller\\DiceGameController::play'], null, ['GET' => 0], null, false, false, null]],
         '/game/pig/roll' => [[['_route' => 'pig_roll', '_controller' => 'App\\Controller\\DiceGameController::roll'], null, ['POST' => 0], null, false, false, null]],
         '/game/pig/save' => [[['_route' => 'pig_save', '_controller' => 'App\\Controller\\DiceGameController::save'], null, ['POST' => 0], null, false, false, null]],
-        '/lucky/number/twig' => [[['_route' => 'lucky_number', '_controller' => 'App\\Controller\\LuckyControllerTwig::number'], null, null, null, false, false, null]],
-        '/about' => [[['_route' => 'about', '_controller' => 'App\\Controller\\LuckyControllerTwig::about'], null, null, null, false, false, null]],
-        '/report' => [[['_route' => 'report', '_controller' => 'App\\Controller\\LuckyControllerTwig::report'], null, null, null, false, false, null]],
-        '/lucky' => [[['_route' => 'lucky', '_controller' => 'App\\Controller\\LuckyControllerTwig::lucky'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
